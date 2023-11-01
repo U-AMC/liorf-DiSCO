@@ -11,6 +11,11 @@
   ```
     rosbag play your_bag.bag
   ```
+
+ <p align='center'>
+      <img src="./demo/multi-2023-11-01_21.15.36.gif" alt="drawing" width="800" height = "400"/>
+  </p>
+  
 DiSCo-SLAM FEATURES
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 **DiSCo-SLAM is a novel framework for distributed, multi-robot SLAM intended for use with 3D LiDAR observations. The framework is the first to use the lightweight Scan Context descriptor for multi-robot SLAM, permitting a data-efficient exchange of LiDAR observations among robots. Additionally, our framework includes a two-stage global and local optimization framework for distributed multi- robot SLAM which provides stable localization results that are resilient to the unknown initial conditions that typify the search for inter-robot loop closures.**
