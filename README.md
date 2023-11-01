@@ -1,3 +1,53 @@
+
+## HOW TO Run the package
+0. follow the setup required for liorf package and DiSCO-SLAM (mostly implemented)
+   
+1. Run the launch file:
+  ```
+    roslaunch liorf run_lio_sam_multi.launch
+  ```
+
+2. Play existing bag files:
+  ```
+    rosbag play kitt
+  ```
+DiSCo-SLAM FEATURES
+---------------------------------------------------------------------------------------------------------------------------------------------------
+**DiSCo-SLAM is a novel framework for distributed, multi-robot SLAM intended for use with 3D LiDAR observations. The framework is the first to use the lightweight Scan Context descriptor for multi-robot SLAM, permitting a data-efficient exchange of LiDAR observations among robots. Additionally, our framework includes a two-stage global and local optimization framework for distributed multi- robot SLAM which provides stable localization results that are resilient to the unknown initial conditions that typify the search for inter-robot loop closures.**
+
+<p align="center"><img src="doc/pipeline.jpeg" width=900></p>
+
+## 
+- Here we provide a distributed multi-robot SLAM example for 3 robots, intended for use with the two datasets provided below.
+- Code from [Scan Context](https://github.com/irapkaist/scancontext) is used for feature description.
+- We use code from [PCM](https://github.com/lajoiepy/robust_distributed_mapper/tree/d609f59658956e1b7fe06c786ed7d07776ecb426/cpp/src/pairwise_consistency_maximization) 
+for outlier detection.
+
+
+## Dependencies
+- [gtsam 4.0.2](https://github.com/borglab/gtsam/releases) (Georgia Tech Smoothing and Mapping library)
+- Dependency for [Scan Context](https://github.com/irapkaist/scancontext):
+  - [libnabo 1.0.7](https://github.com/ethz-asl/libnabo/releases)
+  
+## Datasets
+
+- [The Park Dataset](https://drive.google.com/file/d/1-2zsRSB_9ORQ9WQdtUbGdoS4YXU3cBQt/view?usp=sharing)
+- [KITTI 08 Dataset](https://drive.google.com/file/d/1U6z_1VHlPJa_DJ2i8VwxkKLjf5JxMo0f/view?usp=sharing)
+
+To run the KITTI08 dataset, change line 9 & 10 in launch/run.launch from
+  ```
+<rosparam file="$(find lio_sam)/config/params.yaml" command="load" />
+<rosparam file="$(find lio_sam)/src/DiSCo-SLAM/config/mapfusion.yaml" command="load"/>
+  ```
+to
+  ```  
+<rosparam file="$(find lio_sam)/config/params_k.yaml" command="load" />
+<rosparam file="$(find lio_sam)/src/DiSCo-SLAM/config/mapfusion_k.yaml" command="load"/>
+  ```
+
+
+LIORF FEATURES
+---------------------------------------------------------------------------------------------------------------------------------------------------
 # New Feature
 ------------------- Update Date: 2022-11-20 -------------------
 - This version has removed the feature extraction module, making it easier to adapt to different lidars;
@@ -23,22 +73,8 @@
 - Add scancontext loop closure detection;
 
 - Support M2DGR dataset.
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
-Blog：[LIO-SAM：配置环境、安装测试、适配自己采集数据集](https://blog.csdn.net/qq_42938987/article/details/108434290)
-
-Video：[基于LIO-SAM框架SLAM算法开发系列视频](https://space.bilibili.com/327643131/channel/collectiondetail?sid=945184&ctype=0)
-
-## Run the package
-
-1. Run the launch file:
-  ```
-    roslaunch liorf run_kitti.launch
-  ```
-
-2. Play existing bag files:
-  ```
-    rosbag play kitti_2011_09_30_drive_0018_synced.bag
-  ```
 
 ## For fusion gps factor
 - Make sure your gnss topic type is 'sensor_msgs::NavSatFix';
@@ -48,8 +84,6 @@ Video：[基于LIO-SAM框架SLAM算法开发系列视频](https://space.bilibili
     gpsTopic: "gps/fix"    # GPS topic
   ```
 - If you want to use liorf with integrated gps factor in kitti dataset, you can use the modified python script in "config/doc/kitti2bag" to obtain high-frequency gps data(Rate: 100HZ, Topic: '/gps/fix/correct'). About how to use "kitti2bag.py", please refer to [doc/kitti2bag](https://github.com/TixiaoShan/LIO-SAM/tree/master/config/doc/kitti2bag).
-
-- For more details, please check the demo video: [基于LIO-SAM框架SLAM算法开发（六）：建图之快速适配多雷达及GNSS设备](https://www.bilibili.com/video/BV1ZD4y177ut/?spm_id_from=333.999.0.0&vd_source=fb7f82fee1e57e882c6174174ad2fa11)
 
 ## Mapping
   1. lio-sam dataset
