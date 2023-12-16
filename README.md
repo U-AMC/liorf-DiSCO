@@ -15,6 +15,9 @@
  <p align='center'>
       <img src="./demo/multi-2023-11-01_21.15.36.gif" alt="drawing" width="800" height = "400"/>
   </p>
+
+## WIP
+FAST-LIO-SAM & Other stable Local SLAM pipelines are to be integrated
   
 DiSCo-SLAM FEATURES
 ---------------------------------------------------------------------------------------------------------------------------------------------------
