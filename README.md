@@ -17,12 +17,12 @@
   </p>
 
 
-DiSCo-SLAM without Local SLAM enhancement:
+**DiSCo-SLAM without Local SLAM enhancement:
 prone to odometry drift in sudden environment changes
  <p align='center'>
       <img src="./demo/IMG_8949.png" alt="drawing" width="800" height = "400"/>
   </p>
-after Local SLAM enhancement(with Liorf as LOCAL SLAM):
+**After Local SLAM enhancement(with Liorf as LOCAL SLAM):
 robust to drift and sudden environment changes
  <p align='center'>
       <img src="./demo/IMG_9065.png" alt="drawing" width="800" height = "400"/>
