@@ -24,7 +24,7 @@
   </p>
 
 
-**after Local SLAM enhancement(with Liorf as LOCAL SLAM):**
+**After Local SLAM enhancement(with Liorf as LOCAL SLAM):**
    robust to drift and sudden environment changes
  <p align='center'>
       <img src="./demo/IMG_9065.png" alt="drawing" width="800" height = "400"/>
