@@ -27,6 +27,7 @@ robust to drift and sudden environment changes
  <p align='center'>
       <img src="./demo/IMG_9065.png" alt="drawing" width="800" height = "400"/>
   </p>
+  
 ## WIP
 FAST-LIO-SAM & Other stable Local SLAM pipelines are to be integrated
   
